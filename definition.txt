@@ -1,0 +1,13 @@
+M -> MODEL
+V -> VIEW
+C -> CONTROLLER
+
+- Usuario faz a requisição
+- Verifica se a rota solicitada esta estabelecida
+- Vai enviar a requisição para o CONTROLLER da rota
+- Carregar um VIEW
+- Chamar um MODEL -> Banco de dados
+
+CONTROLLER
+- MODEL
+- VIEW
