@@ -119,5 +119,9 @@ function calculateProgress() {
     document.getElementById("totalProgress").innerText = `${totalProgress}%`;
 }
 
+function verifyLogin() {
+    
+}
+
 // Calcula o progresso inicial
 calculateProgress();

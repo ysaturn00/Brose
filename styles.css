@@ -2,6 +2,10 @@ h2 {
     color: #fff;
   }
 
+#formTitle {
+  color: black;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
