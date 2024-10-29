@@ -1,11 +1,17 @@
 {
-    "require": {
-        "clancats/hydrahon": "^1.1"
-    },
+    "name": "mathe/brose",
     "autoload": {
         "psr-4": {
-            "core\\": "core/",
-            "src\\": "src/"
+            "App": "App/"
         }
+    },
+    "authors": [
+        {
+            "name": "Brugge-Matheus",
+            "email": "128723144+Brugge-Matheus@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^7.1"
     }
 }
