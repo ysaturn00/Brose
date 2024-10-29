@@ -1,17 +1,20 @@
 <?php
+
 namespace src\controllers;
 
 use \core\Controller;
-use \src\models\Usuario;
+use src\helpers\LoginHelper;
 
-class HomeController extends Controller {
+class HomeController extends Controller
+{
+    private $loggedUser;
 
-    public function index() {
-        $usuarios = Usuario::select()->execute();
-        
-        $this->render('home', array(
-            'usuarios' => $usuarios
-        ));
+    public function __construct()
+    {
+        $this->loggedUser = LoginHelper::checkLogin();
+
+        if (!$this->loggedUser) {
+            $this->redirect('/login');
+        }
     }
-
 }
