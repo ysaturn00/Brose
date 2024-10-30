@@ -9,6 +9,6 @@ class LoginController extends Controller
 
     public function signin()
     {
-        print_r('Login');
+        $this->render('login');
     }
 }

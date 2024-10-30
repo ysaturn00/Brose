@@ -6,12 +6,17 @@ use \core\Controller;
 
 class HomeController extends Controller
 {
-    private $loggedUser = true;
+    public $loggedUser = false;
 
-    public function __construct($loggedUser)
+    public function __construct()
     {
-        if (!$loggedUser) {
-            $this->redirect('login');
+        if (!$this->loggedUser) {
+            $this->redirect('/login');
         }
+    }
+
+    public function index()
+    {
+        $this->render('home', ['name' => 'Matheus']);
     }
 }
