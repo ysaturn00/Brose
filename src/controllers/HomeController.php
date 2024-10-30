@@ -3,18 +3,15 @@
 namespace src\controllers;
 
 use \core\Controller;
-use src\helpers\LoginHelper;
 
 class HomeController extends Controller
 {
-    private $loggedUser;
+    private $loggedUser = true;
 
-    public function __construct()
+    public function __construct($loggedUser)
     {
-        $this->loggedUser = LoginHelper::checkLogin();
-
-        if (!$this->loggedUser) {
-            $this->redirect('/login');
+        if (!$loggedUser) {
+            $this->redirect('login');
         }
     }
 }
