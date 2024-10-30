@@ -1,15 +1,29 @@
 <?php $render('header'); ?>
 
-<h2>Acionar novo usúario</h2>
+<div class="container">
+    <div class="box-imagem">
+        <img src="<?= $base ?>/assets/images/login/imagem3.png" alt="imagem-formulario">
+    </div>
+    <div class="formulario">
+        <form action="<?= $base ?>/login" method="post">
+            <div class="form">
+                <div class="title">
+                    <h1>Faça seu login</h1>
+                </div>
+            </div>
 
-<form action="<?= $base ?>/usuario/<?= $usuarios['id'] ?>/editar" method="post">
-    <label for="name ">Name: </label><br>
-    <input type="text" name="name" id="name" value="<?= $usuarios['nome'] ?>"><br><br>
+            <div class="grupo-input">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="e-mail" placeholder="Digite seu e-mail" required>
+            </div>
 
-    <label for="email">E-mail: </label><br>
-    <input type="email" name="email" id="email" value="<?= $usuarios['email'] ?>"><br><br>
-
-    <input type="submit" value="Salvar">
-</form>
-
-<?php $render('footer') ?>
+            <div class="grupo-input">
+                <label for="password">Senha</label>
+                <input type="password" name="password" id="Senha" placeholder="Digite sua senha" required>
+            </div>
+            <div class="grupo-input">
+                <button type="submit"><a>Entrar</a></button>
+            </div>
+    </div>
+    </form>
+</div>
