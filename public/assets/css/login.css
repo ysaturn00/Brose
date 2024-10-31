@@ -83,7 +83,11 @@ body{
 .grupo-input input {
     margin: 0.rem 0;
     padding: 0.8rem 1.4rem;
-    border: none;
+    /* border: none; */
     border-radius: 10px;
     box-shadow: 1px 1px 6px #aaa3a3;
+}
+
+.border-error {
+    border: 1px solid red;
 }
