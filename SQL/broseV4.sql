@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `employer_skill` (
   `idSkill` int NOT NULL,
   `desired` int NOT NULL,
   `achieved` int NOT NULL,
+  `comment` text NOT NULL,
   PRIMARY KEY (`idEmployerSkill`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -77,13 +78,16 @@ CREATE TABLE IF NOT EXISTS `skills` (
 -- Copiando estrutura para tabela brose.users
 CREATE TABLE IF NOT EXISTS `users` (
   `idUser` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `token` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idUser`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela brose.users: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela brose.users: ~1 rows (aproximadamente)
+INSERT IGNORE INTO `users` (`idUser`, `email`, `password`, `type`, `token`) VALUES
+	(1, 'matheusmilczwski@gmail.com', 'matheus2015', 'admin', '5bdd6ad2f1efc3eda22e03c821bd0912');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
