@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
--- Servidor:                     localhost
--- Versão do servidor:           8.0.30 - MySQL Community Server - GPL
+-- Servidor:                     127.0.0.1
+-- Versão do servidor:           8.3.0 - MySQL Community Server - GPL
 -- OS do Servidor:               Win64
 -- HeidiSQL Versão:              12.8.0.6908
 -- --------------------------------------------------------
@@ -19,10 +19,20 @@
 CREATE DATABASE IF NOT EXISTS `brose` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `brose`;
 
+-- Copiando estrutura para tabela brose.departments
+CREATE TABLE IF NOT EXISTS `departments` (
+  `idDepartment` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idDepartment`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela brose.departments: ~0 rows (aproximadamente)
+
 -- Copiando estrutura para tabela brose.employers
 CREATE TABLE IF NOT EXISTS `employers` (
   `idEmployer` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `idPosition` int NOT NULL,
   `idDepartment` int NOT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -43,6 +53,16 @@ CREATE TABLE IF NOT EXISTS `employer_skill` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela brose.employer_skill: ~0 rows (aproximadamente)
+
+-- Copiando estrutura para tabela brose.positions
+CREATE TABLE IF NOT EXISTS `positions` (
+  `idPosition` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idPosition`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela brose.positions: ~0 rows (aproximadamente)
 
 -- Copiando estrutura para tabela brose.skills
 CREATE TABLE IF NOT EXISTS `skills` (

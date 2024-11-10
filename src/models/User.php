@@ -8,5 +8,6 @@ class User extends Model
 {
     public $idUser;
     public $email;
+    public $type;
     public $token;
 }

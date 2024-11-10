@@ -3,7 +3,7 @@
 namespace src\controllers;
 
 use \core\Controller;
-use src\helpers;
+use src\helpers\LoginHelper;
 
 class LoginController extends Controller
 {
@@ -25,10 +25,20 @@ class LoginController extends Controller
 
         if (empty($email) || empty($password)) {
             $_SESSION['flash'] = 'Preencha todos os campos obrigatórios';
-
             $this->redirect('/login');
         }
 
         $email = filter_var($email, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $password = trim($password);
+
+        $token = LoginHelper::verifyLogin($email, $password);
+
+        if ($token) {
+            $_SESSION['token'] = $token;
+            $this->redirect('/');
+        }
+
+        $_SESSION['flash'] = "Credenciais erradas ou inválidas";
+        $this->redirect('/login');
     }
 }
