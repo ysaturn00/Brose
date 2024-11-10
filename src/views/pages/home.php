@@ -1,4 +1,5 @@
 <?php $render('header'); ?>
+<?php $render('header-menu'); ?>
 
 <!-- Main Content -->
 <section id="employeeList">
