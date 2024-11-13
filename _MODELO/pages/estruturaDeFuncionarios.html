@@ -4,36 +4,164 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brose</title>
-  <link rel="stylesheet" href="estruturaDeFuncionarios.css" />
+  <link rel="stylesheet" href="estruturaDeFuncionaros.css" />
+  <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
 </head>
 <body>
   <!-- Header -->
-  <header class="main-header">
-    <nav>
-      <ul class="nav-links">
-        <li><img src="images/logobrose.png" alt="Logoheader" /></li>
-        <li><a href="pages/index.html">Estrutura de Funcionários</a></li>
-        <li><a href="pages/skillsMatrix.html">Skills Matrix</a></li>
-        <li><a href="pages/relatorios.html">Relatórios</a></li>
-        <li><a href="pages/notificacoes.html">Notificações</a></li>
-      </ul>
-    </nav>
+<header class="main-header">
+  <nav>
+    <ul class="nav-links">
+      <li><a href="../pages/estruturaDeFuncionarios.html"><img src="../images/logobrose.png" alt="Logoheader" /></a></li>
+      <li><a href="../pages/notificacoes.html">Notificações</a></li>
+    </ul>
+  </nav>
+  <div class="header-right">
+    <label for="status-filter">Buscar:</label>
+    <input type="text" placeholder="Buscar..." />
+  <div class="search">
+    <a href="#">
+      <button class="pesquisar">
+        <img src="../images/lupa.png" alt="lupa">
+      </button>
+    </a>
+  </div>
+  <div class="user-logout">
+    <a href="../login/login.html">
+      <button class="logout">
+        <img src="../images/sair.png" alt="Logotipo">
+      </button>
+    </a>
+  </div>
+  <div>
+    <a href="#">
+      <button class="notificacoes">
+        <img src="../images/notificacao.png" alt="notificacao">
+      </button>
+    </a>
+  </div>
+</header>
 
-    <div class="header-right">
-      <label for="status-filter">Buscar:</label>
-      <select id="status-filter">
-        <option value=""></option>
-        <option value="CUR">CUR CURITIBA</option>
-        <option value="GOI">GOI GOIÂNIA</option>
-        <option value="SAO">SAO SÃO PAULO</option>
-      </select>
-      <input type="text" placeholder="Buscar..." />
-      <div class="user-logout">
-        <button class="logout">
-          <img src="images/sair.png" alt="Logotipo">
-        </button>
+    <!-- MAIN -->
+<main>
+  <div class="header-skills">
+    <h1 class="titulo">Lista de Funcionários</h1>  <!--titulo -->
+  <div class="header-botoes"> <!--botões -->
+    <button onclick="openEmployeeForm()">ADD FUNCIONÁRIOS</a></button>
+    <button><a href="#">ADD DEPARTAMENTOS</a></button>
+    <button><a href="#">ADD CARGO</a></button>
+  </div>
+  </div>
+  <table id="employeesTable">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Cargo</th>
+        <th>Departamento</th>
+        <th>E-mail</th>
+        <th>Última Avaliação</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+      <tbody id="employees"></tbody>
+    </table> 
+
+      <!-- Employee Form Modal -->
+    <div id="employeeFormModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeEmployeeForm()">&times;</span>
+        <h2 id="formTitle">Cadastrar Funcionário</h2>
+        <br>
+        <form id="employeeForm" onsubmit="submitForm(event)">
+          <input type="hidden" id="employeeId" />
+
+          <label for="employeeName">Nome:</label>
+          <input type="text" id="employeeName" required />
+          <br>
+          <br>
+
+          <label for="employeeRole">Cargo:</label>
+          <select id="employeeRole" required>
+            <option value="Operador">OPERADOR DE PRODUÇÃO</option>
+            <option value="AuxiliarProducao">AUXILIAR DE PRODUÇÃO</option>
+            <option value="AnalistaQualidadeJR">ANALISTA DA QUALIDADE JR</option>
+            <option value="AnalistaQualidadePL">ANALISTA DA QUALIDADE PL</option>
+            <option value="AnalistaQualidadeSR">ANALISTA DA QUALIDADE SR</option>
+            <option value="AnalistaTecInfoJR">ANALISTA DA TECNOLOGIA DA INFORMAÇÃO JR</option>
+            <option value="AnalistaTecInfoPL">ANALISTA DA TECNOLOGIA DA INFORMAÇÃO PL</option>
+            <option value="AnalistaTecInfoSR">ANALISTA DA TECNOLOGIA DA INFORMAÇÃO SR</option>
+            <option value="AnalistaFinanceiroJR">ANALISTA FINANCEIRO JR</option>
+            <option value="AnalistaFinanceiroPL">ANALISTA FINANCEIRO PL</option>
+            <option value="AnalistaFinanceiroSR">ANALISTA FINANCEIRO SR</option>
+            <option value="AnalistaComprasJR">ANALISTA COMPRAS JR</option>
+            <option value="AnalistaComprasPL">ANALISTA COMPRAS PL</option>
+            <option value="AnalistaComprasSR">ANALISTA COMPRAS SR</option>
+            <option value="AnalistaControladoriaJR">ANALISTA CONTROLADORIA JR</option>
+            <option value="AnalistaControladoriaPL">ANALISTA CONTROLADORIA PL</option>
+            <option value="AnalistaControladoriaSR">ANALISTA CONTROLADORIA SR</option>
+            <option value="AnalistaLogisticaJR">ANALISTA DE LOGISTÍCA JR</option>
+            <option value="AnalistaLogisticaPL">ANALISTA DE LOGISTÍCA PL</option>
+            <option value="AnalistaLogisticaSR">ANALISTA DE LOGISTÍCA SR</option>
+            <option value="AnalistaManufaturaJR">ANALISTA DE MANUFATURA JR</option>
+            <option value="AnalistaManufaturaPL">ANALISTA DE MANUFATURA PL</option>
+            <option value="AnalistaManufaturaSR">ANALISTA DE MANUFATURA SR</option>
+            <option value="EngenheiroProjetosJR">ENGENHEIRO DE PROJETOS JR</option>
+            <option value="EngenheiroProjetosPL">ENGENHEIRO DE PROJETOS PL</option>
+            <option value="EngenheiroProjetosSR">ENGENHEIRO DE PROJETOS SR</option>
+            <option value="MontadorInstrumentosdePrecisao">MONTADOR INSTRUMENTOS DE PRECISÃO</option>
+          </select>
+          <br>
+          <br>
+
+          <label for="employeeDepartment">Departamento:</label>
+          <select id="employeeDepartment" required>
+            <option value="RH">RH</option>
+            <option value="TI">TI</option>
+            <option value="Financeiro">FINANCEIRO</option>
+            <option value="Manufatura">MANUFATURA</option>
+            <option value="BR/TQ1qualityandindustrialization"> BR/TQ1 QUALITY AND INDUSTRIALIZATION</option>
+            <option value="QualidadeEQF">QUALIDADE EQF</option>
+            <option value="MontagemTimeLevantVidro1">MONTAGEM TIME LEVANT VIDRO 1</option>
+            <option value="GarantiaDeQualidade">GARANTIA DE QUALIDADE</option>
+            <option value="BusinessDivisionDoor1">BUSINESS DIVISION DOOR 1</option>
+            <option value="Compras">COMPRAS</option>
+            <option value="AbastecimentodeLinha">ABASTECIMENTO DE LINHA</option>
+            <option value="LogisticaFísica">LOGÍSTICA FÍSICA</option>
+          </select>
+          <br>
+          <br>
+
+          <label for="employeeEmail">E-mail:</label>
+          <input type="email" id="employeeEmail" required />
+          <br>
+          <br>
+
+          <label for="employeeultimaAvaliacao">Última Avaliação:</label>
+          <input type="ultimaAvaliacao" id="employeeultimaAvaliacao" required />
+
+          <br>
+          <br>
+
+          <button type="submit">Salvar</button>
+        </form>
       </div>
     </div>
-  </header>
+  </div>
+
+<!-- Modal de Visualização do Funcionário -->
+<div id="viewEmployeeModal" class="modal">
+    <div class="viewmodal-content">
+      <span class="close" onclick="closeViewEmployee()">&times;</span>
+      <h2 style="color: black;">Detalhes do Funcionário</h2>
+      <p><strong>Nome:</strong> <span id="viewEmployeeName"></span></p>
+      <p><strong>Cargo:</strong> <span id="viewEmployeeRole"></span></p>
+      <p><strong>Departamento:</strong> <span id="viewEmployeeDepartment"></span></p>
+      <p><strong>Email:</strong> <span id="viewEmployeeEmail"></span></p>
+      <p><strong>Última Avaliação:</strong> <span id="viewEmployeeultimaAvaliacao"></span></p>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</main>
 </body>
 </html>

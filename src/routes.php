@@ -7,6 +7,8 @@ $router = new Router();
 // GET
 $router->get('/', 'HomeController@index');
 
+$router->post('/create', 'EmployeeController@index');
+
 $router->get('/login', 'LoginController@signin');
 $router->post('/login', 'LoginController@signinAction');
 
