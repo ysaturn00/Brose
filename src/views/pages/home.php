@@ -33,35 +33,35 @@
             <span class="close">&times;</span>
             <h2 id="formTitle">Cadastrar Funcionário</h2>
             <br>
-            <form id="form-employee" action="" method="POST">
+            <form id="form-employee" action="<?= $base ?>/create" method="POST">
                 <input type="hidden" id="employeeId" />
 
                 <label for="employeeName">Nome:</label>
-                <input type="text" name="name-employee" id="name-employee" required />
+                <input type="text" name="name" id="name-employee" required />
                 <br>
                 <br>
 
                 <label for="employeeRole">Cargo:</label>
-                <select name="employee-role" id="employeeRole" required>
+                <select name="role" id="employeeRole" required>
                     <option value="Operador">OPERADOR DE PRODUÇÃO</option>
                 </select>
                 <br>
                 <br>
 
                 <label for="employeeDepartment">Departamento:</label>
-                <select name="employee-department" id="employeeDepartment" required>
+                <select name="department" id="employeeDepartment" required>
                     <option value="RH">RH</option>
                 </select>
                 <br>
                 <br>
 
-                <label for="employeeEmail">E-mail:</label>
+                <label for="email">E-mail:</label>
                 <input name="email" type="email" id="employeeEmail" required />
                 <br>
                 <br>
 
-                <label for="employeeultimaAvaliacao">Última Avaliação:</label>
-                <input name="lastAvaliation" id="employeeultimaAvaliacao" required />
+                <label for="lastReview">Última Avaliação:</label>
+                <input name="lastReview" id="employeeultimaAvaliacao" required />
 
                 <br>
                 <br>
