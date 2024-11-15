@@ -17,6 +17,9 @@ body {
   background-color: #ffffff;
 }
 
+
+/* Header */
+
 .main-header {
   background-color: #000000;
   color: white;
@@ -64,7 +67,12 @@ body {
   background: none;
   border: none;
   color: white;
-  font-size: 1.2em;
+  cursor: pointer;
+}
+.documento{
+  background: none;
+  border: none;
+  color: rgb(0, 0, 0);
   cursor: pointer;
 }
 .notificacoes {
@@ -138,26 +146,151 @@ button:hover {
   background-color: #540808;
 }
 
-#employeesTable {
+
+/* Tabela */
+
+.employeesTable {
   width: 100%;
   align-items: center;
-  justify-content: center;
   border-collapse: collapse;
-  background-color: rgb(160, 159, 159);
+  background-color: #bfc2c5;
 }
 
-#employeesTable th, #employeesTable td {
+.employeesTable th, .employeesTable td {
   padding: 6px;
   text-align: left;
   border: 2px solid #ffffff;
   color: white;
 }
 
-#employeesTable th {
-  background-color: #6a6a6a;
+.employeesTable th {
+  background-color: #8a8d8f;
   font-weight: bold;
 }
 
-#employeesTable tr:hover {
+.table2 {
+  width: 100%;
+  align-items: center;
+  border-collapse: collapse;
   background-color: #bfc2c5;
+}
+
+.table2 th, .table2 td {
+  padding: 6px;
+  text-align: left;
+  border: 2px solid #ffffff;
+  color: white;
+  font-weight: bold;
+  
+}
+.table2 td:nth-child(1) {
+  background-color: #8a8d8f;
+}
+.table2 th {
+  background-color: #0f0f0f;
+  font-weight: bold;
+  
+}
+
+.text-area textarea{
+  width: 400px; /* Aumenta a largura */
+  height: 200px; /* Aumenta a altura */
+  padding: 19px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.num input{
+  border-radius: 3px;
+}
+
+.formulario {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /*alinhar os itens em coluna*/
+  background-color: rgb(255, 255, 255);
+  padding: 3rem;
+}
+
+.title-- {
+  display: flex;
+  height: 1cm;
+
+}
+
+
+/* Modal */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+
+.modal-header {
+  background-color: #000;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+
+.save-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: darkred;
 }
