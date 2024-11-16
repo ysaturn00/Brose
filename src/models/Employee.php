@@ -6,7 +6,7 @@ use \core\Model;
 
 class Employee extends Model
 {
-    public $idEmployeer;
+    public $idEmployee;
     public $name;
     public $idPosition;
     public $idDepartment;

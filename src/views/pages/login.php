@@ -11,7 +11,7 @@
                     <h1>Faça seu login</h1>
                 </div>
             </div>
-            <span <?= !empty($flash) ? 'style="display: block;"' : '' ?> class="box-error"><?= $flash ?></span>
+            <?= $flash ?>
             <form action="<?= $base ?>/login" method="post">
 
                 <div class="grupo-input">

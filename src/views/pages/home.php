@@ -6,6 +6,8 @@
     <div class="header-skills">
         <h1 class="titulo">Lista de Funcionários</h1>
         <!--titulo -->
+        <?= getFlash('success') ?>
+        <?= getFlash('error') ?>
         <div class="header-botoes">
             <!--botões -->
             <button id="btn-add-employee">ADD FUNCIONÁRIOS</a></button>
@@ -37,32 +39,26 @@
                 <input type="hidden" id="employeeId" />
 
                 <label for="employeeName">Nome:</label>
-                <input type="text" name="name" id="name-employee" required />
+                <input type="text" name="name" id="name-employee" />
                 <br>
                 <br>
 
                 <label for="employeeRole">Cargo:</label>
                 <select name="role" id="employeeRole" required>
-                    <option value="Operador">OPERADOR DE PRODUÇÃO</option>
+                    <option value="<?= (int)1 ?>">OPERADOR DE PRODUÇÃO</option>
                 </select>
                 <br>
                 <br>
 
                 <label for="employeeDepartment">Departamento:</label>
-                <select name="department" id="employeeDepartment" required>
-                    <option value="RH">RH</option>
+                <select name="department" id="employeeDepartment">
+                    <option value="<?= (int)2 ?>">RH</option>
                 </select>
                 <br>
                 <br>
 
                 <label for="email">E-mail:</label>
-                <input name="email" type="email" id="employeeEmail" required />
-                <br>
-                <br>
-
-                <label for="lastReview">Última Avaliação:</label>
-                <input name="lastReview" id="employeeultimaAvaliacao" required />
-
+                <input name="email" type="email" id="employeeEmail" />
                 <br>
                 <br>
 

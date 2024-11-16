@@ -7,7 +7,7 @@ use \src\helpers\LoginHelper;
 
 class HomeController extends Controller
 {
-    public $loggedUser = false;
+    private $loggedUser = false;
 
     public function __construct()
     {
@@ -20,6 +20,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        $this->render('home', ['name' => 'Matheus']);
+        $this->render('home');
     }
 }

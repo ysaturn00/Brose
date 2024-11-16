@@ -7,6 +7,10 @@
         "psr-4": {
             "core\\": "core/",
             "src\\": "src/"
-        }
+        },
+
+        "files": [
+            "src/helpers/functions.php"
+        ]
     }
 }

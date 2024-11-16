@@ -10,12 +10,7 @@ class LoginController extends Controller
 
     public function signin()
     {
-        if (!empty($_SESSION['flash'])) {
-            $flash = $_SESSION['flash'];
-            unset($_SESSION['flash']);
-        }
-
-        $this->render('login', ['flash' => $flash ?? '']);
+        $this->render('login', ['flash' => getFlash('error') ?? '']);
     }
 
     public function signinAction()
@@ -24,7 +19,7 @@ class LoginController extends Controller
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         if (empty($email) || empty($password)) {
-            $_SESSION['flash'] = 'Preencha todos os campos obrigatórios';
+            setFlash('error', 'Preencha todos os campos obrigatórios');
             $this->redirect('/login');
         }
 
@@ -38,7 +33,7 @@ class LoginController extends Controller
             $this->redirect('/');
         }
 
-        $_SESSION['flash'] = "Credenciais erradas ou inválidas";
+        setFlash('error', 'Credenciais erradas ou inválidas');
         $this->redirect('/login');
     }
 }
