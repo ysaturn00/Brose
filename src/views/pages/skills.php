@@ -16,7 +16,6 @@
                 <input type="hidden" name="name-skill" value="">
                 <input type="hidden" name="level-skill" value="">
                 <input type="hidden" name="skill-description" value="">
-                <button type="submit" id="btn-edit-skill"><a>SALVAR</a></button>
             </form>
         </div>
     </div>
@@ -52,6 +51,7 @@
                 <th>SKILLS</th>
                 <th>NÍVEL</th>
                 <th>PLANO DE DESENVOLVIMENTO</th>
+                <th>AÇÕES</th>
             </tr>
         </thead>
         <tbody>
@@ -64,6 +64,10 @@
                 </td>
                 <td>
                     <textarea name="skill-description" id="skill-description"><?= $skill['description'] ?></textarea>
+                </td>
+                <td>
+                <button id="btn-edit">Editar</button>
+                <button id="btn-edit">Excluir</button>
                 </td>
             </tr>
             <?php endforeach ?>
