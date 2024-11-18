@@ -23,3 +23,38 @@ function getFlash(string $flash)
 
     return '';
 }
+
+function setUrl($name)
+{
+    $name = mb_strtolower($name, 'UTF-8');
+
+    $name = preg_replace(
+        ['/[áàâãäå]/u', '/[éèêë]/u', '/[íìîï]/u', '/[óòôõö]/u', '/[úùûü]/u', '/[ç]/u', '/[ñ]/u'],
+        ['a', 'e', 'i', 'o', 'u', 'c', 'n'],
+        $name
+    );
+
+    $name = preg_replace('/[^a-z0-9\s-]/', '', $name);
+
+    $name = preg_replace('/\s+/', ' ', $name);
+
+    $name = preg_replace('/\s/', '-', $name);
+
+    $name = preg_replace('/-+/', '-', $name);
+
+    $name = trim($name, '-');
+
+    return $name;
+}
+
+function getActualURI()
+{
+    $uri = $_SERVER['REQUEST_URI'];
+
+    $uri = explode('/', $uri);
+
+    $_SESSION['Alluri'] = $uri;
+    $_SESSION['uri'] = !empty($uri[3]) ? $uri[3] : '/';
+    $_SESSION['uri2'] = !empty($uri[4]) ? $uri[4] : '';
+    $_SESSION['uri3'] = !empty($uri[5]) ? $uri[5] : '';
+}

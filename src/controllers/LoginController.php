@@ -16,14 +16,14 @@ class LoginController extends Controller
     public function signinAction()
     {
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
         if (empty($email) || empty($password)) {
             setFlash('error', 'Preencha todos os campos obrigatórios');
             $this->redirect('/login');
         }
 
-        $email = filter_var($email, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $email = filter_var($email, FILTER_SANITIZE_SPECIAL_CHARS);
         $password = trim($password);
 
         $token = LoginHelper::verifyLogin($email, $password);
@@ -35,5 +35,11 @@ class LoginController extends Controller
 
         setFlash('error', 'Credenciais erradas ou inválidas');
         $this->redirect('/login');
+    }
+
+    public function signout()
+    {
+        unset($_SESSION['token']);
+        $this->redirect('/');
     }
 }

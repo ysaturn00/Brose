@@ -18,7 +18,7 @@
             </a>
         </div>
         <div class="user-logout">
-            <a href="../login/login.html">
+            <a href="<?= $base ?>/logout">
                 <button class="logout">
                     <img src="<?= $base ?>/assets/images/login/sair.png" alt="sair">
                 </button>

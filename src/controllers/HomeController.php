@@ -4,10 +4,13 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\helpers\LoginHelper;
+use \src\helpers\DepartmentHelper;
+use \src\helpers\PositionHelper;
+use \src\helpers\EmployeeHelper;
 
 class HomeController extends Controller
 {
-    private $loggedUser = false;
+    private $loggedUser;
 
     public function __construct()
     {
@@ -20,6 +23,14 @@ class HomeController extends Controller
 
     public function index()
     {
-        $this->render('home');
+        $departments = DepartmentHelper::getAll();
+        $positions = PositionHelper::getAll();
+        $employees = EmployeeHelper::getAll();
+
+        $this->render('home', [
+            'departments' => $departments,
+            'positions' => $positions,
+            'employees' => $employees,
+        ]);
     }
 }

@@ -1,0 +1,296 @@
+h2 {
+  color: #fff;
+}
+
+#formTitle {
+color: black;
+}
+
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+} */
+
+
+/* Header */
+
+.main-header {
+  background-color: #000000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links li a:hover {
+  color: #ff0000;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-right label {
+  color: white;
+  font-weight: bold;
+}
+
+.header-right select,
+.header-right input[type="text"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.logout {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.documento{
+  background: none;
+  border: none;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+.notificacoes {
+  background: none;
+  border: none;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+.container {
+  width: 80%;
+  margin: auto;
+  padding-top: 70px;
+}
+
+.header-botoes {
+  padding: 20px;
+}
+.header-botoes a{
+  text-decoration: none;
+  color: white;
+}
+.header-skills{
+  display: flex;
+  gap: 15px; /* Espaço entre as divs */
+  justify-content: center; /* Centraliza as divs horizontalmente */
+  align-items: center; /* Alinha as divs verticalmente no centro */
+  justify-content: space-between;
+  margin: 8px;
+}
+.titulo {
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+}
+button {
+  padding: 0.5em 1em;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+button:hover {
+  background-color: #540808;
+}
+
+.logout {
+  padding: 0.5em 1em;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #540808;
+}
+
+.pesquisar {
+  padding: 0.5em 1em;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #540808;
+}
+
+
+/* Tabela */
+
+.employeesTable {
+  width: 100%;
+  align-items: center;
+  border-collapse: collapse;
+  background-color: #bfc2c5;
+}
+
+.employeesTable th, .employeesTable td {
+  padding: 6px;
+  text-align: left;
+  border: 2px solid #ffffff;
+  color: white;
+}
+
+.employeesTable th {
+  background-color: #8a8d8f;
+  font-weight: bold;
+}
+
+.table2 {
+  width: 100%;
+  align-items: center;
+  border-collapse: collapse;
+  background-color: #bfc2c5;
+}
+
+.table2 th, .table2 td {
+  padding: 6px;
+  text-align: left;
+  border: 2px solid #ffffff;
+  color: white;
+  font-weight: bold;
+  
+}
+.table2 td:nth-child(1) {
+  background-color: #8a8d8f;
+}
+.table2 th {
+  background-color: #0f0f0f;
+  font-weight: bold;
+  
+}
+
+.text-area textarea{
+  width: 400px; /* Aumenta a largura */
+  height: 200px; /* Aumenta a altura */
+  padding: 19px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.num input{
+  border-radius: 3px;
+}
+
+.formulario {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /*alinhar os itens em coluna*/
+  background-color: rgb(255, 255, 255);
+  padding: 3rem;
+}
+
+.title-- {
+  display: flex;
+  height: 1cm;
+
+}
+
+
+/* Modal */
+
+.modal-skill {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+
+.modal-header {
+  background-color: #000;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+
+.save-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: darkred;
+}
