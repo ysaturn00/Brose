@@ -11,7 +11,13 @@
         <div class="header-botoes">
             <!--botões -->
             <button id="btn-add-skill"><a>ADD SKILL</a></button>
-            <button><a href="">SALVAR</a></button>
+            <form id="form-edit-skill" action="<?= $base ?>/editSkill" method="post">
+                <input type="hidden" name="idSkill" value="">
+                <input type="hidden" name="name-skill" value="">
+                <input type="hidden" name="level-skill" value="">
+                <input type="hidden" name="skill-description" value="">
+                <button type="submit" id="btn-edit-skill"><a>SALVAR</a></button>
+            </form>
         </div>
     </div>
 
@@ -47,32 +53,23 @@
                 <th>NÍVEL</th>
                 <th>PLANO DE DESENVOLVIMENTO</th>
             </tr>
-            <tr>
-                <td>REQUISITOS LEGAIS APLICAVEIS</td>
-                <td class="num"><input type="number" class="real" value="1" min="0" max="10"
-                        onchange="calculateProgress()"></td>
-                <td><textarea name="text" id="text-area"></textarea></td>
-            </tr>
-            <tr>
-                <td>LSS CONHECIMENTOS GERAIS - WHITE BELT</td>
-                <td class="num"><input type="number" class="real" value="1" min="0" max="10"
-                        onchange="calculateProgress()"></td>
-                <td><textarea name="text" id="text-area"></textarea></td>
-            </tr>
-            <tr>
-                <td>LIDERANÇA</td>
-                <td class="num"><input type="number" class="real" value="1" min="0" max="10"
-                        onchange="calculateProgress()"></td>
-                <td><textarea name="text" id="text-area"></textarea></td>
-            </tr>
-            <tr>
-                <td>TREINAMENTO PROBLEM SOLVING</td>
-                <td class="num"><input type="number" class="real" value="1" min="0" max="10"
-                        onchange="calculateProgress()"></td>
-                <td><textarea name="text" id="text-area"></textarea></td>
-            </tr>
         </thead>
+        <tbody>
+            <?php foreach ($skills as $key => $skill): ?>
+            <tr>
+                <td id="name-skill" contenteditable="true"><?= $skill['name'] ?></td>
+                <td class="num">
+                    <input type="number" name="level-skill" class="real" value="<?= $skill['level'] ?>" min="0"
+                        max="10">
+                </td>
+                <td>
+                    <textarea name="skill-description" id="skill-description"><?= $skill['description'] ?></textarea>
+                </td>
+            </tr>
+            <?php endforeach ?>
+        </tbody>
     </table>
+
 
     <!-- Modal -->
     <div style="display: none;" class="modal-skill" id="skillModal">
@@ -88,12 +85,13 @@
                 </div>
                 <div class="input-group">
                     <label for="skillLevel">NÍVEL DA SKILL</label>
-                    <input type="text" name="level" id="skillLevel">
+                    <input type="number" name="level" id="skillLevel">
                 </div>
                 <div class="input-group">
                     <label for="developmentPlan">PLANO DE DESENVOLVIMENTO</label>
-                    <textarea name="developmentPlan" name="description" id="developmentPlan"></textarea>
+                    <textarea name="description" id="developmentPlan"></textarea>
                 </div>
+                <input type="hidden" name="idEmployeer" value="<?= $actualEmployee['idEmployeer'] ?>">
                 <button type="submit" class="save-btn">SALVAR</button>
             </div>
         </form>

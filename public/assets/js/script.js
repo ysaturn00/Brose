@@ -28,3 +28,14 @@ $('.close').on('click', (event) => {
     $('.modal').hide();
     $('#skillModal').hide();
 });
+
+$('#btn-edit-skill').on('click', function (event) {
+    skillName = $('#name-skill').text();
+    skillLevel = $('.table2 input[name="level-skill"]').val();
+    skillDescription = $('#skill-description').val();
+
+    $('#form-edit-skill input[name="name-skill"]').attr('value', skillName);
+    $('#form-edit-skill input[name="level-skill"]').attr('value', skillLevel);
+    $('#form-edit-skill input[name="skill-description"]').attr('value', skillDescription);
+
+});

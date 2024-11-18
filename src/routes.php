@@ -14,7 +14,9 @@ $router->post('/editEmployee/{id}', 'EmployeeController@editEmployeeAction');
 $router->post('/createEmployee', 'EmployeeController@createEmployee');
 $router->post('/createDepartment', 'EmployeeController@createDepartment');
 $router->post('/createPosition', 'EmployeeController@createPosition');
+
 $router->post('/createSkill', 'SkillsController@createSkill');
+$router->post('/editSkill', 'SkillsController@editSkill');
 
 $router->get('/login', 'LoginController@signin');
 $router->get('/logout', 'LoginController@signout');
