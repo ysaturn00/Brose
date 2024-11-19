@@ -24,6 +24,7 @@ class SkillsController extends Controller
     {
         $employee = EmployeeHelper::getEmployee($idEmployeer);
         $skills = SkillsHelper::getAll($employee['idEmployeer']);
+        $_SESSION['idEmployeer'] = $employee['idEmployeer'];
 
         $this->render('skills', [
             'actualEmployee' => $employee,
@@ -58,5 +59,62 @@ class SkillsController extends Controller
 
         setFlash('success', 'Skill adicionada com sucesso', 'success');
         $this->redirect("/skills/$idEmployeer");
+    }
+
+    public function editSkill(array $idSkill)
+    {
+        $idEmployeer = $_SESSION['idEmployeer'];
+        $skill = SkillsHelper::getSkill($idSkill);
+        $employee = EmployeeHelper::getEmployee($idEmployeer);
+        $skills = SkillsHelper::getAll($employee['idEmployeer']);
+
+        $this->render('skills', [
+            'actualEmployee' => $employee,
+            'skills' => $skills,
+            'skill' => $skill
+        ]);
+    }
+
+    public function editSkillAction(array $idSkill)
+    {
+        $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+        $IdPostition = filter_input(INPUT_POST, 'role', FILTER_VALIDATE_INT);
+        $IdDepartment = filter_input(INPUT_POST, 'department', FILTER_VALIDATE_INT);
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+
+        if (!$name || !$IdPostition || !$IdDepartment || !$email) {
+            setFlash('error', 'Favor preencher todos os campos');
+            $this->redirect("/skills/{$idSkill['id']}");
+        }
+
+        // $employee = EmployeeHelper::editEmployee(
+        //     // $name,
+        //     // $IdPostition,
+        //     // $IdDepartment,
+        //     // $email,
+        //     // $idEmployeer
+        // );
+
+        // if (!$employee) {
+        //     setFlash('error', 'Erro ao atualizar adicionar funcionário');
+        //     $this->redirect("/skills/$idSkill");
+        // }
+
+        setFlash('success', 'Funcionário atualizar com sucesso', 'success');
+        $this->redirect("/skills/{$idSkill['id']}");
+    }
+
+    public function deleteSkill(array $idSkill)
+    {
+        $idSkill = $idSkill['id'];
+        $deleteSkill = SkillsHelper::deleteSkill($idSkill);
+
+        if (!$deleteSkill) {
+            setFlash('error', 'Erro ao apagar Skill');
+            $this->redirect("/skills/{$idSkill['id']}");
+        }
+
+        setFlash('success', 'Skill apagado com sucesso', 'success');
+        $this->redirect("/skills/$idSkill");
     }
 }

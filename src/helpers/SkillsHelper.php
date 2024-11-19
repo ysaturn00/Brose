@@ -35,4 +35,28 @@ class SkillsHelper
             return false;
         }
     }
+
+    public static function getSkill($idSkill)
+    {
+        try {
+            $skill = Skill::select()->where('idSkill', $idSkill)->one();
+
+            return $skill;
+        } catch (PDOException $e) {
+            dd($e);
+            return false;
+        }
+    }
+
+    public static function deleteSkill($idSkill)
+    {
+        try {
+            Skill::delete()->where('idSkill', $idSkill)->execute();
+
+            return true;
+        } catch (PDOException $e) {
+            dd($e);
+            return false;
+        }
+    }
 }

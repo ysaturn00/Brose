@@ -294,3 +294,11 @@ button:hover {
 .save-btn:hover {
   background-color: darkred;
 }
+
+#btn-edit-skill a{
+  color: white;
+}
+
+#btn-delete-skill a{
+  color: white;
+}
