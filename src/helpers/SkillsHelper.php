@@ -48,4 +48,21 @@ class SkillsHelper
             return false;
         }
     }
+
+    public static function editSkill(string $name, int $idPosition, int $idDepartment, string $email, array $idEmployeer)
+    {
+        if ($name || $idPosition || $idDepartment || $email) {
+            Skill::update([
+                'name' => $name,
+                'idPosition' => $idPosition,
+                'idDepartment' => $idDepartment,
+                'email' => $email,
+                'lastReview' => date('Y-m-d H:i:s')
+            ])->where('idEmployeer', $idEmployeer)->execute();
+
+            return true;
+        }
+
+        return false;
+    }
 }

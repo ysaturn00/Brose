@@ -45,3 +45,74 @@ $('#btn-edit-skill').on('click', function (event) {
     $('#form-edit-skill input[name="skill-description"]').attr('value', skillDescription);
 
 });
+
+$('#generatePDFSkill').on('click', function (event) {
+    event.preventDefault();
+
+
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF();
+
+    // Primeira Tabela
+    const employeesTable = document.getElementById("employeesTable");
+    pdf.autoTable({
+        html: employeesTable,
+        startY: 20, // Começa a renderizar a tabela a 20 unidades da margem superior
+        styles: {
+            fontSize: 10,
+            cellPadding: 4,
+        },
+        headStyles: {
+            fillColor: [0, 0, 0],
+            textColor: [255, 255, 255],
+        },
+    });
+
+    // Segunda Tabela
+    const skillsTable = document.getElementById("skillsTable");
+    pdf.autoTable({
+        html: skillsTable,
+        startY: pdf.lastAutoTable.finalY + 10, // Posiciona abaixo da primeira tabela
+        styles: {
+            fontSize: 10,
+            cellPadding: 4,
+        },
+        headStyles: {
+            fillColor: [0, 0, 0],
+            textColor: [255, 255, 255],
+        },
+    });
+
+    // Abre o PDF em uma nova aba
+    pdf.output("dataurlnewwindow");
+});
+
+document.getElementById("generatePDFEmployee").addEventListener("click", function () {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF();
+
+    // Captura a tabela do DOM
+    const table = document.getElementById("employeesTable");
+
+    // Gera a tabela no PDF usando autoTable
+    pdf.autoTable({
+        html: table, // Passa o elemento da tabela diretamente
+        startY: 20, // Margem superior no PDF
+        styles: {
+            fontSize: 10,
+            cellPadding: 4,
+            overflow: "linebreak",
+            valign: "middle",
+        },
+        headStyles: {
+            fillColor: [0, 0, 0], // Cor do cabeçalho
+            textColor: [255, 255, 255], // Cor do texto no cabeçalho
+        },
+    });
+
+    // Abre o PDF em uma nova aba
+    pdf.output("dataurlnewwindow");
+});
+
+
+

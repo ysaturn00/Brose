@@ -11,13 +11,13 @@
         <div class="header-botoes">
             <!--botões -->
             <button id="btn-add-skill"><a>ADD SKILL</a></button>
-            <button type="submit" id="btn-edit-skill"><a>SALVAR</a></button>
+            <button id="generatePDFSkill">EXPORTAR</button>
 
         </div>
     </div>
 
     <!-- Tabela -->
-    <table class="employeesTable">
+    <table class="employeesTable" id="employeesTable">
         <thead>
             <tr>
                 <th>NR</th>
@@ -41,7 +41,7 @@
             </tr>
         </thead>
     </table>
-    <table class="table2">
+    <table id="skillsTable" class="table2">
         <thead>
             <tr>
                 <th>SKILLS</th>
@@ -62,9 +62,14 @@
                     <textarea name="skill-description" id="skill-description"><?= $skill['description'] ?></textarea>
                 </td>
                 <td>
-                    <button onclick="return confirm('Deseja realmente apagar essa skill?')" id="btn-delete-skill"><a
-                            style="color: white;"
-                            href="<?= $base ?>/deleteSkill/<?= $skill['idSkill'] ?>">Excluir</a></button>
+                    <!-- <button onclick="return confirm('Deseja realmente apagar essa skill?')" id="btn-delete-skill"><a
+                                style="color: white;"
+                                href="<?= $base ?>/deleteSkill/<?= $skill['idSkill'] ?>">Excluir</a></button> -->
+
+                    <a onclick="return confirm('Deseja realmente apagar esse usúario?')"
+                        href="<?= $base ?>/deleteSkill/<?= $skill['idSkill'] ?>">
+                        <button id="btn-delete">Excluir</button>
+                    </a>
                 </td>
             </tr>
             <?php endforeach ?>
@@ -72,8 +77,8 @@
     </table>
 
 
-    <!-- Modal -->
-    <?php if ($_SESSION['uri'] == 'editSkill'): ?>
+    <!-- Modal edit skill -->
+    <?php if ($_SESSION['uri'] == 'edit'): ?>
     <div style="display: block;" class="modal-skill" id="skillModal">
         <div class="modal-header">
             <h2>EDITAR SKILL FUNCIONÁRIO</h2>
@@ -93,7 +98,7 @@
                     <label for="developmentPlan">PLANO DE DESENVOLVIMENTO</label>
                     <textarea name="description" id="developmentPlan"><?= $skill['description'] ?></textarea>
                 </div>
-                <input type="hidden" name="idEmployeer" value="<?= $actualEmployee['idEmployeer'] ?>">
+                <input type="hidden" name="idSkill" value="<?= $actualEmployee['idSkill'] ?>">
                 <button type="submit" class="save-btn">SALVAR</button>
             </div>
         </form>

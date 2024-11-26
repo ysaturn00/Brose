@@ -6,6 +6,7 @@ use \core\Controller;
 use \src\helpers\LoginHelper;
 use \src\helpers\EmployeeHelper;
 use src\helpers\SkillsHelper;
+use src\models\Skill;
 
 class SkillsController extends Controller
 {
@@ -75,5 +76,20 @@ class SkillsController extends Controller
 
         setFlash('success', 'Skill apagada com sucesso', 'success');
         $this->redirect("/skills/$idEmployeer");
+    }
+
+    public static function editSkill(string $name, string $level, string $description, int $idSkill)
+    {
+        if ($name || $level || $description) {
+            Skill::update([
+                'name' => $name,
+                'idPosition' => $level,
+                'description' => $description,
+            ])->where('idSkill', $idSkill)->execute();
+
+            return true;
+        }
+
+        return false;
     }
 }
