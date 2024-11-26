@@ -121,4 +121,44 @@ class EmployeeHelper
 
         return $employee;
     }
+
+    public static function searchDepartment($value, array $fields = [])
+    {
+        $departments = DepartmentHelper::getAll();
+        $positions = PositionHelper::getAll();
+
+        $result = [];
+
+        try {
+            $employees = Employee::select($fields)->where('name', 'like', '%' . $value . '%')->get();
+
+            foreach ($employees as $employee) {
+
+                foreach ($positions as $position) {
+                    if ($employee['idPosition'] == $position['idPosition']) {
+                        $employee['position'] = $position['name'];
+                        break;
+                    }
+                }
+
+                foreach ($departments as $department) {
+                    if ($employee['idDepartment'] == $department['idDepartment']) {
+                        $employee['department'] = $department['name'];
+                        break;
+                    }
+                }
+
+                $timestamp = strtotime($employee['lastReview']);
+                $formattedDate = date('d/m/Y H:i', $timestamp);
+                $employee['lastReview'] = $formattedDate;
+
+                $result[] = $employee;
+            }
+
+            return $result;
+        } catch (PDOException $e) {
+            dd($e);
+            return false;
+        }
+    }
 }

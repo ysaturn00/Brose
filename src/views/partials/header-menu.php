@@ -8,15 +8,17 @@
         </ul>
     </nav>
     <div class="header-right">
-        <!-- <label for="status-filter">Buscar:</label>
-        <input type="text" placeholder="Buscar..." /> -->
-        <!-- <div class="search">
-            <a href="#">
-                <button class="pesquisar">
-                    <img src="<?= $base ?>/assets/images/login/lupa.png" alt="lupa">
-                </button>
-            </a>
-        </div> -->
+        <div class="search">
+            <form action="<?= $base ?>/search" method="get">
+                <label for="status-filter">Buscar:</label>
+                <input type="text" name="search" placeholder="Buscar..." />
+                <a href="#">
+                    <button class="pesquisar">
+                        <img src="<?= $base ?>/assets/images/login/lupa.png" alt="lupa">
+                    </button>
+                </a>
+            </form>
+        </div>
         <div class="user-logout">
             <a href="<?= $base ?>/logout">
                 <button class="logout">

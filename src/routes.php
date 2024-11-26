@@ -22,6 +22,8 @@ $router->get('/login', 'LoginController@signin');
 $router->get('/logout', 'LoginController@signout');
 $router->post('/login', 'LoginController@signinAction');
 
+$router->get('/search', 'HomeController@search');
+
 $router->get('/skills/{id}', 'SkillsController@index');
 
 // $router->get('/usuario/{id}/editar', 'UsuariosController@edit');

@@ -33,4 +33,23 @@ class HomeController extends Controller
             'employees' => $employees,
         ]);
     }
+
+    public function search()
+    {
+        $search = $_GET['search'];
+
+        // dd($search);
+
+        $departments = DepartmentHelper::getAll();
+        $positions = PositionHelper::getAll();
+        $employees = EmployeeHelper::searchDepartment($search);
+
+        // dd($employees);
+
+        $this->render('home', [
+            'departments' => $departments,
+            'positions' => $positions,
+            'employees' => $employees,
+        ]);
+    }
 }
