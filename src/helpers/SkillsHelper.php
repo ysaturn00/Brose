@@ -36,26 +36,9 @@ class SkillsHelper
         }
     }
 
-<<<<<<< HEAD
     public static function deleteSkill(int $idSkill)
     {
 
-=======
-    public static function getSkill($idSkill)
-    {
-        try {
-            $skill = Skill::select()->where('idSkill', $idSkill)->one();
-
-            return $skill;
-        } catch (PDOException $e) {
-            dd($e);
-            return false;
-        }
-    }
-
-    public static function deleteSkill($idSkill)
-    {
->>>>>>> 39a6561098536da0acb926afb3ee6ce2cb38beb0
         try {
             Skill::delete()->where('idSkill', $idSkill)->execute();
 
