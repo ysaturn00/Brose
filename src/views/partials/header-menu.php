@@ -4,7 +4,11 @@
         <ul class="nav-links">
             <li><a href="<?= $base ?>"><img src="<?= $base ?>/assets/images/login/logobrose.png" alt="Logoheader" /></a>
             </li>
+<<<<<<< HEAD
             <!-- <li><a href="../pages/notificacoes.html">Notificações</a></li> -->
+=======
+            <li><a href="<?= $base ?>/notifications">Notificações</a></li>
+>>>>>>> 39a6561098536da0acb926afb3ee6ce2cb38beb0
         </ul>
     </nav>
     <div class="header-right">

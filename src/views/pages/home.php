@@ -43,7 +43,11 @@
                             <button id="btn-edit">Editar</button>
                         </a>
 
+<<<<<<< HEAD
                         <a onclick="return confirm('Deseja realmente apagar esse usúario?')"
+=======
+                        <a onclick="return confirm('Deseja realmente apagar esse usúario')"
+>>>>>>> 39a6561098536da0acb926afb3ee6ce2cb38beb0
                             href="<?= $base ?>/delete/<?= $employee['idEmployeer'] ?>">
                             <button id="btn-delete">Excluir</button>
                         </a>
