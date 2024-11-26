@@ -24,6 +24,7 @@ class SkillsController extends Controller
     {
         $employee = EmployeeHelper::getEmployee($idEmployeer);
         $skills = SkillsHelper::getAll($employee['idEmployeer']);
+        $_SESSION['idEmployeer'] = $idEmployeer['id'];
 
         $this->render('skills', [
             'actualEmployee' => $employee,
@@ -57,6 +58,22 @@ class SkillsController extends Controller
         }
 
         setFlash('success', 'Skill adicionada com sucesso', 'success');
+        $this->redirect("/skills/$idEmployeer");
+    }
+
+    public function deleteSkill(array $idSkill)
+    {
+        $idSkill = (int)$idSkill['id'];
+        $idEmployeer = $_SESSION['idEmployeer'];
+
+        $deleteSkill = SkillsHelper::deleteSkill($idSkill);
+
+        if (!$deleteSkill) {
+            setFlash('error', 'Erro ao apagar skill');
+            $this->redirect("/skills/$idEmployeer");
+        }
+
+        setFlash('success', 'Skill apagada com sucesso', 'success');
         $this->redirect("/skills/$idEmployeer");
     }
 }

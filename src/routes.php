@@ -17,6 +17,7 @@ $router->post('/createPosition', 'EmployeeController@createPosition');
 
 $router->post('/createSkill', 'SkillsController@createSkill');
 $router->post('/editSkill', 'SkillsController@editSkill');
+$router->get('/deleteSkill/{id}', 'SkillsController@deleteSkill');
 
 $router->get('/login', 'LoginController@signin');
 $router->get('/logout', 'LoginController@signout');

@@ -11,13 +11,8 @@
         <div class="header-botoes">
             <!--botões -->
             <button id="btn-add-skill"><a>ADD SKILL</a></button>
-            <form id="form-edit-skill" action="<?= $base ?>/editSkill" method="post">
-                <input type="hidden" name="idSkill" value="">
-                <input type="hidden" name="name-skill" value="">
-                <input type="hidden" name="level-skill" value="">
-                <input type="hidden" name="skill-description" value="">
-                <button type="submit" id="btn-edit-skill"><a>SALVAR</a></button>
-            </form>
+            <button type="submit" id="btn-edit-skill"><a>SALVAR</a></button>
+
         </div>
     </div>
 
@@ -52,20 +47,26 @@
                 <th>SKILLS</th>
                 <th>NÍVEL</th>
                 <th>PLANO DE DESENVOLVIMENTO</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($skills as $key => $skill): ?>
-            <tr>
-                <td id="name-skill" contenteditable="true"><?= $skill['name'] ?></td>
-                <td class="num">
-                    <input type="number" name="level-skill" class="real" value="<?= $skill['level'] ?>" min="0"
-                        max="10">
-                </td>
-                <td>
-                    <textarea name="skill-description" id="skill-description"><?= $skill['description'] ?></textarea>
-                </td>
-            </tr>
+                <tr>
+                    <td id="name-skill" contenteditable="true"><?= $skill['name'] ?></td>
+                    <td class="num">
+                        <input type="number" name="level-skill" class="real" value="<?= $skill['level'] ?>" min="0"
+                            max="10">
+                    </td>
+                    <td>
+                        <textarea name="skill-description" id="skill-description"><?= $skill['description'] ?></textarea>
+                    </td>
+                    <td>
+                        <button onclick="return confirm('Deseja realmente apagar essa skill?')" id="btn-delete-skill"><a
+                                style="color: white;"
+                                href="<?= $base ?>/deleteSkill/<?= $skill['idSkill'] ?>">Excluir</a></button>
+                    </td>
+                </tr>
             <?php endforeach ?>
         </tbody>
     </table>
@@ -75,7 +76,7 @@
     <div style="display: none;" class="modal-skill" id="skillModal">
         <div class="modal-header">
             <h2>ADD SKILL AO FUNCIONÁRIO</h2>
-            <button class="close close-btn">&times;</button>
+            <button class="close-skill close-btn">&times;</button>
         </div>
         <form action="<?= $base ?>/createSkill" method="post">
             <div class="modal-body">

@@ -26,6 +26,12 @@ $('.close').on('click', (event) => {
     event.preventDefault();
 
     $('.modal').hide();
+    window.location.href = "/Brose/public/";
+});
+
+$('.close-skill').on('click', (event) => {
+    event.preventDefault();
+
     $('#skillModal').hide();
 });
 
